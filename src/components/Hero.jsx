@@ -129,7 +129,7 @@ export default function Hero() {
           </h1>
 
           <p ref={subRef} className="opacity-0 text-[#d4b896] text-lg leading-relaxed mb-6 max-w-xl">
-            From beginner to profitable trader — master the stock market with 15+ years of expert guidance by <strong className="text-white">Hari</strong>,
+            From beginner to profitable trader — master the stock market with 15+ years of expert guidance by <strong className="text-white">Bhardwaj</strong>,
             proven strategies, and live market sessions.
           </p>
 

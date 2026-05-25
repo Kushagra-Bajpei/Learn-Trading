@@ -10,7 +10,7 @@ export default function Pricing() {
     'Basic to Advanced Level Stock Market Training',
     'Live Trading Sessions in Real Market Conditions',
     'Learn Practical & Proven Trading Strategies',
-    'Taught by Hari (Professional Trader with 15 Years Experience)',
+    'Taught by Bhardwaj (Professional Trader with 15 Years Experience)',
     'Comprehensive Options & Price Action Modules',
     'Interactive Q&A and Live Chat Support during sessions',
     'Lifetime Access to Session Recordings & Course Material',

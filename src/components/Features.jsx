@@ -50,7 +50,7 @@ export default function Features() {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <p className="text-[#ff8c00] text-sm font-semibold uppercase tracking-widest mb-3">Why Trade with Hari</p>
+          <p className="text-[#ff8c00] text-sm font-semibold uppercase tracking-widest mb-3">Why Trade with Bhardwaj</p>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white">
             Everything You Need to <span className="gradient-text">Succeed</span>
           </h2>

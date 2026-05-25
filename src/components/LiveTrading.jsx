@@ -27,7 +27,7 @@ export default function LiveTrading() {
   }, []);
 
   return (
-    <section id="live-trading" className="py-24 relative overflow-hidden bg-[#0d1a0f]">
+    <section id="live-trading" className="py-24 relative overflow-hidden bg-[#110d04]">
       <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-80 h-80 rounded-full opacity-10"
         style={{ background: 'radial-gradient(circle, #ff8c00, transparent)' }} />
       <div className="max-w-7xl mx-auto px-6">

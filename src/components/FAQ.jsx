@@ -77,7 +77,7 @@ export default function FAQ() {
           className="text-center mt-10">
           <p className="text-[#8c7050] text-sm">
             Still have questions?{' '}
-            <a href="mailto:support@tradewithhari.com" className="text-[#ff8c00] hover:underline font-semibold">
+            <a href="mailto:support@tradewithbhardwaj.com" className="text-[#ff8c00] hover:underline font-semibold">
               Contact us →
             </a>
           </p>

@@ -55,11 +55,11 @@ export default function Instructor() {
               <div className="gradient-card border border-[#ff8c00]/20 rounded-3xl p-8 relative z-10">
                 {/* Avatar placeholder */}
                 <div className="w-48 h-48 rounded-2xl mx-auto mb-6 overflow-hidden relative"
-                  style={{ background: 'linear-gradient(135deg,#0f2a1a,#1a3d28)' }}>
+                  style={{ background: 'linear-gradient(135deg,#2a1800,#3d2400)' }}>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-20 h-20 rounded-full gradient-brand mx-auto flex items-center justify-center mb-2">
-                        <span className="text-[#0d0a06] font-display font-bold text-3xl">H</span>
+                        <span className="text-[#0d0a06] font-display font-bold text-3xl">B</span>
                       </div>
                       <p className="text-[#8c7050] text-xs">Professional Trader</p>
                     </div>
@@ -67,7 +67,7 @@ export default function Instructor() {
                 </div>
 
                 <div className="text-center mb-6">
-                  <h3 className="font-display font-bold text-white text-2xl">Hari</h3>
+                  <h3 className="font-display font-bold text-white text-2xl">Bhardwaj</h3>
                   <p className="text-[#ff8c00] text-sm font-semibold mt-1">Professional Trader & Lead Instructor</p>
                 </div>
 
@@ -104,14 +104,14 @@ export default function Instructor() {
               <span className="gradient-text">Now Yours to Learn</span>
             </h3>
             <p className="text-[#d4b896] leading-relaxed mb-6">
-              Hari is a full-time professional trader with over 15 years of experience in the Indian stock markets.
+              Bhardwaj is a full-time professional trader with over 15 years of experience in the Indian stock markets.
               He has traded through bull runs, bear markets, and major black swan events — developing a battle-tested,
               risk-first approach that delivers consistent results.
             </p>
             <p className="text-[#d4b896] leading-relaxed mb-8">
-              He founded <strong className="text-white">Trade with Hari</strong> to give every aspiring trader access to
+              He founded <strong className="text-white">Trade with Bhardwaj</strong> to give every aspiring trader access to
               genuine, no-nonsense market education. His teaching is practical, jargon-free, and built on real trading —
-              not theory. Whether you are a complete beginner or looking to level up, Hari's guidance will transform how you trade.
+              not theory. Whether you are a complete beginner or looking to level up, Bhardwaj's guidance will transform how you trade.
             </p>
 
             <div className="space-y-3 mb-8">
@@ -125,7 +125,7 @@ export default function Instructor() {
               ))}
             </div>
 
-            <button className="btn-primary px-8 py-3.5 relative z-10">Learn From Hari →</button>
+            <button className="btn-primary px-8 py-3.5 relative z-10">Learn From Bhardwaj →</button>
           </motion.div>
         </div>
       </div>
