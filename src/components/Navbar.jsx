@@ -4,7 +4,7 @@ import { TrendingUp, Menu, X } from 'lucide-react';
 
 const links = ['Home', 'Courses', 'Live Trading', 'Instructor', 'Pricing', 'Referral'];
 
-export default function Navbar() {
+export default function Navbar({ onLinkClick }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -13,6 +13,22 @@ export default function Navbar() {
     window.addEventListener('scroll', fn);
     return () => window.removeEventListener('scroll', fn);
   }, []);
+
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    if (onLinkClick) {
+      onLinkClick(null);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setOpen(false);
+  };
+
+  const handleLinkClick = (e, l) => {
+    if (onLinkClick) {
+      onLinkClick(null);
+    }
+    setOpen(false);
+  };
 
   return (
     <motion.nav
@@ -25,7 +41,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-18 py-4">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
+        <a href="#" onClick={handleLogoClick} className="flex items-center gap-2 group">
           <div className="w-9 h-9 rounded-lg gradient-brand flex items-center justify-center glow-sm">
             <TrendingUp size={18} className="text-[#0d0a06]" strokeWidth={3} />
           </div>
@@ -42,6 +58,7 @@ export default function Navbar() {
             <a
               key={l}
               href={`#${l.toLowerCase().replace(' ', '-')}`}
+              onClick={(e) => handleLinkClick(e, l)}
               className="text-sm text-[#d4b896] hover:text-[#ff8c00] transition-colors duration-200 font-medium"
             >
               {l}
@@ -79,7 +96,7 @@ export default function Navbar() {
                 <a
                   key={l}
                   href={`#${l.toLowerCase().replace(' ', '-')}`}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => handleLinkClick(e, l)}
                   className="text-[#d4b896] hover:text-[#ff8c00] text-sm font-medium transition-colors"
                 >
                   {l}
