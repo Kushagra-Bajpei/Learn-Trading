@@ -1,34 +1,92 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, MessageCircle, Clock, CheckCircle } from 'lucide-react';
 
-const LinkedInIcon = () => (
-  <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect x="2" y="9" width="4" height="12" />
-    <circle cx="4" cy="4" r="2" />
-  </svg>
-);
-const XIcon = () => (
-  <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-    <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-  </svg>
-);
-const TelegramIcon = () => (
-  <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 2L2 10l8 3 3 8z" />
-    <path d="M10 13l5.5-5.5" />
-  </svg>
-);
-const InstagramIcon = () => (
-  <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-  </svg>
-);
+/* ── Leaflet map (loaded lazily so SSR never breaks) ── */
+function LocationMap() {
+  const mapRef = useRef(null);
+  const instanceRef = useRef(null);
 
+  useEffect(() => {
+    if (instanceRef.current) return; // already mounted
+
+    import('leaflet').then((L) => {
+      // Fix default marker icon paths broken by Vite bundling
+      delete L.Icon.Default.prototype._getIconUrl;
+      L.Icon.Default.mergeOptions({
+        iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+      });
+
+      const lat = 18.9388, lng = 72.8354; // Nariman Point, Mumbai
+
+      const map = L.map(mapRef.current, {
+        center: [lat, lng],
+        zoom: 14,
+        zoomControl: true,
+        scrollWheelZoom: false,
+      });
+
+      // Dark tile layer that matches the site palette
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '© <a href="https://carto.com/">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 20,
+      }).addTo(map);
+
+      // Custom orange marker icon
+      const orangeIcon = L.divIcon({
+        className: '',
+        html: `<div style="
+          width:36px;height:36px;border-radius:50% 50% 50% 0;
+          background:#ff8c00;border:3px solid #fff;
+          transform:rotate(-45deg);
+          box-shadow:0 0 18px rgba(255,140,0,0.7);
+        "></div>`,
+        iconSize: [36, 36],
+        iconAnchor: [18, 36],
+        popupAnchor: [0, -40],
+      });
+
+      L.marker([lat, lng], { icon: orangeIcon })
+        .addTo(map)
+        .bindPopup(`
+          <div style="font-family:sans-serif;padding:4px 2px;min-width:160px">
+            <strong style="color:#ff8c00">Trade with Bhardwaj</strong><br/>
+            <span style="font-size:12px;color:#555">Nariman Point, Mumbai<br/>Maharashtra, India 400021</span>
+          </div>
+        `)
+        .openPopup();
+
+      instanceRef.current = map;
+    });
+
+    return () => {
+      if (instanceRef.current) {
+        instanceRef.current.remove();
+        instanceRef.current = null;
+      }
+    };
+  }, []);
+
+  return (
+    <>
+      {/* Leaflet CSS */}
+      <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      />
+      <div
+        ref={mapRef}
+        style={{ height: '280px', width: '100%', borderRadius: '16px', zIndex: 0 }}
+        className="overflow-hidden"
+      />
+    </>
+  );
+}
+
+/* ── Contact info cards ── */
 const contactInfo = [
   {
     icon: <Mail size={20} />,
@@ -47,8 +105,8 @@ const contactInfo = [
   {
     icon: <MapPin size={20} />,
     label: 'Our Office',
-    value: 'Mumbai, Maharashtra',
-    sub: 'India — 400001',
+    value: 'Nariman Point, Mumbai',
+    sub: 'Maharashtra, India — 400021',
     href: '#',
   },
   {
@@ -60,13 +118,6 @@ const contactInfo = [
   },
 ];
 
-const socials = [
-  { icon: <LinkedInIcon />, label: 'LinkedIn', href: 'https://linkedin.com' },
-  { icon: <XIcon />, label: 'X (Twitter)', href: 'https://x.com' },
-  { icon: <TelegramIcon />, label: 'Telegram', href: 'https://telegram.org' },
-  { icon: <InstagramIcon />, label: 'Instagram', href: 'https://instagram.com' },
-];
-
 const topics = [
   'Course Enrollment',
   'Live Session Access',
@@ -76,6 +127,7 @@ const topics = [
   'Other',
 ];
 
+/* ── Main Component ── */
 export default function CTABanner() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
@@ -83,11 +135,7 @@ export default function CTABanner() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', topic: '', message: '' });
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
+  const handleSubmit = (e) => { e.preventDefault(); setSubmitted(true); };
 
   return (
     <section id="contact" className="py-24 bg-[#0d0a06] relative overflow-hidden">
@@ -95,8 +143,6 @@ export default function CTABanner() {
       <div className="absolute inset-0 opacity-[0.04]"
         style={{ backgroundImage: 'linear-gradient(rgba(255,140,0,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,140,0,1) 1px,transparent 1px)', backgroundSize: '60px 60px' }} />
       <div className="absolute inset-0 bg-gradient-to-b from-[#0d0a06] via-transparent to-[#0d0a06]" />
-
-      {/* Orange glow blob */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#ff8c00]/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10" ref={ref}>
@@ -121,14 +167,13 @@ export default function CTABanner() {
 
         <div className="grid lg:grid-cols-5 gap-10 items-start">
 
-          {/* Left: Contact Info + Socials */}
+          {/* Left: Contact Info Cards + Leaflet Map */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="lg:col-span-2 space-y-4"
           >
-            {/* Contact Info Cards */}
             {contactInfo.map((c, i) => (
               <a key={i} href={c.href}
                 className="flex items-center gap-4 bg-[#1a1206] border border-[#2e1f08] rounded-2xl p-4 hover:border-[#ff8c00]/40 transition-all duration-300 group"
@@ -144,20 +189,14 @@ export default function CTABanner() {
               </a>
             ))}
 
-            {/* Social Links */}
-            <div className="bg-[#1a1206] border border-[#2e1f08] rounded-2xl p-5">
-              <p className="text-white text-sm font-semibold mb-4">Follow Us</p>
-              <div className="grid grid-cols-2 gap-3">
-                {socials.map((s, i) => (
-                  <a key={i} href={s.href} target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 text-[#8c7050] hover:text-[#ff8c00] text-xs font-medium transition-colors group"
-                  >
-                    <div className="w-8 h-8 rounded-lg bg-[#0d0a06] border border-[#2e1f08] flex items-center justify-center group-hover:border-[#ff8c00]/40 transition-colors">
-                      {s.icon}
-                    </div>
-                    {s.label}
-                  </a>
-                ))}
+            {/* Leaflet Map replaces Follow Us */}
+            <div className="bg-[#1a1206] border border-[#2e1f08] rounded-2xl overflow-hidden">
+              <div className="px-4 pt-4 pb-2 flex items-center gap-2">
+                <MapPin size={14} className="text-[#ff8c00]" />
+                <span className="text-white text-sm font-semibold">Find Us on Map</span>
+              </div>
+              <div className="px-3 pb-3">
+                <LocationMap />
               </div>
             </div>
           </motion.div>
@@ -196,37 +235,29 @@ export default function CTABanner() {
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-[#8c7050] text-xs mb-1.5 font-medium">Full Name *</label>
-                        <input
-                          name="name" value={form.name} onChange={handleChange} required
+                        <input name="name" value={form.name} onChange={handleChange} required
                           placeholder="Rahul Sharma"
-                          className="w-full bg-[#0d0a06] border border-[#2e1f08] rounded-xl px-4 py-3 text-white text-sm placeholder-[#4a3520] outline-none focus:border-[#ff8c00]/50 focus:ring-1 focus:ring-[#ff8c00]/20 transition-all"
-                        />
+                          className="w-full bg-[#0d0a06] border border-[#2e1f08] rounded-xl px-4 py-3 text-white text-sm placeholder-[#4a3520] outline-none focus:border-[#ff8c00]/50 focus:ring-1 focus:ring-[#ff8c00]/20 transition-all" />
                       </div>
                       <div>
                         <label className="block text-[#8c7050] text-xs mb-1.5 font-medium">Email Address *</label>
-                        <input
-                          name="email" value={form.email} onChange={handleChange} required type="email"
+                        <input name="email" value={form.email} onChange={handleChange} required type="email"
                           placeholder="rahul@example.com"
-                          className="w-full bg-[#0d0a06] border border-[#2e1f08] rounded-xl px-4 py-3 text-white text-sm placeholder-[#4a3520] outline-none focus:border-[#ff8c00]/50 focus:ring-1 focus:ring-[#ff8c00]/20 transition-all"
-                        />
+                          className="w-full bg-[#0d0a06] border border-[#2e1f08] rounded-xl px-4 py-3 text-white text-sm placeholder-[#4a3520] outline-none focus:border-[#ff8c00]/50 focus:ring-1 focus:ring-[#ff8c00]/20 transition-all" />
                       </div>
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-[#8c7050] text-xs mb-1.5 font-medium">Phone / WhatsApp</label>
-                        <input
-                          name="phone" value={form.phone} onChange={handleChange}
+                        <input name="phone" value={form.phone} onChange={handleChange}
                           placeholder="+91 98765 43210"
-                          className="w-full bg-[#0d0a06] border border-[#2e1f08] rounded-xl px-4 py-3 text-white text-sm placeholder-[#4a3520] outline-none focus:border-[#ff8c00]/50 focus:ring-1 focus:ring-[#ff8c00]/20 transition-all"
-                        />
+                          className="w-full bg-[#0d0a06] border border-[#2e1f08] rounded-xl px-4 py-3 text-white text-sm placeholder-[#4a3520] outline-none focus:border-[#ff8c00]/50 focus:ring-1 focus:ring-[#ff8c00]/20 transition-all" />
                       </div>
                       <div>
                         <label className="block text-[#8c7050] text-xs mb-1.5 font-medium">Topic *</label>
-                        <select
-                          name="topic" value={form.topic} onChange={handleChange} required
-                          className="w-full bg-[#0d0a06] border border-[#2e1f08] rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-[#ff8c00]/50 focus:ring-1 focus:ring-[#ff8c00]/20 transition-all appearance-none cursor-pointer"
-                        >
+                        <select name="topic" value={form.topic} onChange={handleChange} required
+                          className="w-full bg-[#0d0a06] border border-[#2e1f08] rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-[#ff8c00]/50 focus:ring-1 focus:ring-[#ff8c00]/20 transition-all appearance-none cursor-pointer">
                           <option value="" disabled>Select a topic</option>
                           {topics.map((t) => <option key={t} value={t}>{t}</option>)}
                         </select>
@@ -235,17 +266,13 @@ export default function CTABanner() {
 
                     <div>
                       <label className="block text-[#8c7050] text-xs mb-1.5 font-medium">Your Message *</label>
-                      <textarea
-                        name="message" value={form.message} onChange={handleChange} required
-                        rows={5}
+                      <textarea name="message" value={form.message} onChange={handleChange} required rows={5}
                         placeholder="Tell us how we can help you…"
-                        className="w-full bg-[#0d0a06] border border-[#2e1f08] rounded-xl px-4 py-3 text-white text-sm placeholder-[#4a3520] outline-none focus:border-[#ff8c00]/50 focus:ring-1 focus:ring-[#ff8c00]/20 transition-all resize-none"
-                      />
+                        className="w-full bg-[#0d0a06] border border-[#2e1f08] rounded-xl px-4 py-3 text-white text-sm placeholder-[#4a3520] outline-none focus:border-[#ff8c00]/50 focus:ring-1 focus:ring-[#ff8c00]/20 transition-all resize-none" />
                     </div>
 
                     <button type="submit"
-                      className="btn-primary w-full py-4 text-sm font-semibold flex items-center justify-center gap-2 relative z-10"
-                    >
+                      className="btn-primary w-full py-4 text-sm font-semibold flex items-center justify-center gap-2 relative z-10">
                       <Send size={16} /> Send Message
                     </button>
 
