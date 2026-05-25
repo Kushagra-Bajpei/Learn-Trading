@@ -20,19 +20,19 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'glass border-b border-[#1e3028]' : 'bg-transparent'
+        scrolled ? 'glass border-b border-[#2e1f08]' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-18 py-4">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 group">
           <div className="w-9 h-9 rounded-lg gradient-brand flex items-center justify-center glow-sm">
-            <TrendingUp size={18} className="text-[#0a0f0d]" strokeWidth={3} />
+            <TrendingUp size={18} className="text-[#0d0a06]" strokeWidth={3} />
           </div>
           <div className="leading-tight">
             <span className="font-display font-800 text-white text-lg tracking-tight">Trade with</span>
             <span className="font-display font-800 gradient-text text-lg tracking-tight"> Bhardwaj</span>
-            <p className="text-[10px] text-[#6b8c74] -mt-1 tracking-widest uppercase">Learn · Trade · Grow</p>
+            <p className="text-[10px] text-[#8c7050] -mt-1 tracking-widest uppercase">Learn · Trade · Grow</p>
           </div>
         </a>
 
@@ -42,7 +42,7 @@ export default function Navbar() {
             <a
               key={l}
               href={`#${l.toLowerCase().replace(' ', '-')}`}
-              className="text-sm text-[#a8c5b2] hover:text-[#00ff88] transition-colors duration-200 font-medium"
+              className="text-sm text-[#d4b896] hover:text-[#ff8c00] transition-colors duration-200 font-medium"
             >
               {l}
             </a>
@@ -57,7 +57,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-[#00ff88] p-2"
+          className="md:hidden text-[#ff8c00] p-2"
           onClick={() => setOpen(!open)}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -72,7 +72,7 @@ export default function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden glass border-t border-[#1e3028] overflow-hidden"
+            className="md:hidden glass border-t border-[#2e1f08] overflow-hidden"
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {links.map((l) => (
@@ -80,7 +80,7 @@ export default function Navbar() {
                   key={l}
                   href={`#${l.toLowerCase().replace(' ', '-')}`}
                   onClick={() => setOpen(false)}
-                  className="text-[#a8c5b2] hover:text-[#00ff88] text-sm font-medium transition-colors"
+                  className="text-[#d4b896] hover:text-[#ff8c00] text-sm font-medium transition-colors"
                 >
                   {l}
                 </a>

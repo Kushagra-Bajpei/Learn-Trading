@@ -33,14 +33,14 @@ export default function Instructor() {
   }, []);
 
   return (
-    <section id="instructor" className="py-24 bg-[#0a0f0d] relative overflow-hidden">
+    <section id="instructor" className="py-24 bg-[#0d0a06] relative overflow-hidden">
       <div className="absolute right-0 top-0 w-96 h-96 opacity-5 rounded-full"
-        style={{ background: 'radial-gradient(circle, #00ff88, transparent)' }} />
+        style={{ background: 'radial-gradient(circle, #ff8c00, transparent)' }} />
 
       <div className="max-w-7xl mx-auto px-6">
         <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }} className="text-center mb-16">
-          <p className="text-[#00ff88] text-sm font-semibold uppercase tracking-widest mb-3">Your Mentor</p>
+          <p className="text-[#ff8c00] text-sm font-semibold uppercase tracking-widest mb-3">Your Mentor</p>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white">
             Meet Your <span className="gradient-text">Expert Instructor</span>
           </h2>
@@ -52,23 +52,23 @@ export default function Instructor() {
             <div className="relative mx-auto w-fit">
               {/* Glow ring */}
               <div className="absolute inset-0 rounded-3xl glow opacity-50" />
-              <div className="gradient-card border border-[#00ff88]/20 rounded-3xl p-8 relative z-10">
+              <div className="gradient-card border border-[#ff8c00]/20 rounded-3xl p-8 relative z-10">
                 {/* Avatar placeholder */}
                 <div className="w-48 h-48 rounded-2xl mx-auto mb-6 overflow-hidden relative"
                   style={{ background: 'linear-gradient(135deg,#0f2a1a,#1a3d28)' }}>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-20 h-20 rounded-full gradient-brand mx-auto flex items-center justify-center mb-2">
-                        <span className="text-[#0a0f0d] font-display font-bold text-3xl">H</span>
+                        <span className="text-[#0d0a06] font-display font-bold text-3xl">H</span>
                       </div>
-                      <p className="text-[#6b8c74] text-xs">Professional Trader</p>
+                      <p className="text-[#8c7050] text-xs">Professional Trader</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="text-center mb-6">
                   <h3 className="font-display font-bold text-white text-2xl">Hari</h3>
-                  <p className="text-[#00ff88] text-sm font-semibold mt-1">Professional Trader & Lead Instructor</p>
+                  <p className="text-[#ff8c00] text-sm font-semibold mt-1">Professional Trader & Lead Instructor</p>
                 </div>
 
                 {/* Stats */}
@@ -76,10 +76,10 @@ export default function Instructor() {
                   {stats.map((s, i) => (
                     <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.3 + i * 0.15 }}
-                      className="bg-[#0a0f0d] border border-[#1e3028] rounded-xl p-3 text-center">
-                      <div className="text-[#00ff88] flex justify-center mb-1">{s.icon}</div>
+                      className="bg-[#0d0a06] border border-[#2e1f08] rounded-xl p-3 text-center">
+                      <div className="text-[#ff8c00] flex justify-center mb-1">{s.icon}</div>
                       <p className="text-white font-bold text-lg font-display">{s.val}</p>
-                      <p className="text-[#6b8c74] text-xs">{s.label}</p>
+                      <p className="text-[#8c7050] text-xs">{s.label}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -87,7 +87,7 @@ export default function Instructor() {
                 {/* Social */}
                 <div className="flex justify-center gap-3">
                   {[Rss, Share2, Globe].map((Icon, i) => (
-                    <button key={i} className="w-10 h-10 rounded-xl bg-[#0a0f0d] border border-[#1e3028] flex items-center justify-center text-[#6b8c74] hover:text-[#00ff88] hover:border-[#00ff88]/40 transition-colors">
+                    <button key={i} className="w-10 h-10 rounded-xl bg-[#0d0a06] border border-[#2e1f08] flex items-center justify-center text-[#8c7050] hover:text-[#ff8c00] hover:border-[#ff8c00]/40 transition-colors">
                       <Icon size={16} />
                     </button>
                   ))}
@@ -103,12 +103,12 @@ export default function Instructor() {
               15 Years of Market Mastery, <br />
               <span className="gradient-text">Now Yours to Learn</span>
             </h3>
-            <p className="text-[#a8c5b2] leading-relaxed mb-6">
+            <p className="text-[#d4b896] leading-relaxed mb-6">
               Hari is a full-time professional trader with over 15 years of experience in the Indian stock markets.
               He has traded through bull runs, bear markets, and major black swan events — developing a battle-tested,
               risk-first approach that delivers consistent results.
             </p>
-            <p className="text-[#a8c5b2] leading-relaxed mb-8">
+            <p className="text-[#d4b896] leading-relaxed mb-8">
               He founded <strong className="text-white">Trade with Hari</strong> to give every aspiring trader access to
               genuine, no-nonsense market education. His teaching is practical, jargon-free, and built on real trading —
               not theory. Whether you are a complete beginner or looking to level up, Hari's guidance will transform how you trade.
@@ -119,8 +119,8 @@ export default function Instructor() {
                 <motion.div key={i} initial={{ opacity: 0, x: 20 }} animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: 0.5 + i * 0.08 }}
                   className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#00ff88] shrink-0 mt-0.5" />
-                  <span className="text-[#a8c5b2] text-sm">{a}</span>
+                  <CheckCircle2 size={18} className="text-[#ff8c00] shrink-0 mt-0.5" />
+                  <span className="text-[#d4b896] text-sm">{a}</span>
                 </motion.div>
               ))}
             </div>

@@ -35,10 +35,10 @@ export default function Features() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section className="py-24 bg-[#0a0f0d] relative overflow-hidden">
+    <section className="py-24 bg-[#0d0a06] relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: 'radial-gradient(circle, rgba(0,255,136,1) 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(circle, rgba(255,140,0,1) 1px, transparent 1px)',
           backgroundSize: '40px 40px',
         }}
       />
@@ -50,7 +50,7 @@ export default function Features() {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <p className="text-[#00ff88] text-sm font-semibold uppercase tracking-widest mb-3">Why Trade with Hari</p>
+          <p className="text-[#ff8c00] text-sm font-semibold uppercase tracking-widest mb-3">Why Trade with Hari</p>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white">
             Everything You Need to <span className="gradient-text">Succeed</span>
           </h2>
@@ -63,13 +63,13 @@ export default function Features() {
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.12, duration: 0.6, ease: 'easeOut' }}
-              className="card-hover gradient-card border border-[#1e3028] rounded-2xl p-6 flex flex-col gap-4"
+              className="card-hover gradient-card border border-[#2e1f08] rounded-2xl p-6 flex flex-col gap-4"
             >
-              <div className="w-12 h-12 rounded-xl bg-[#00ff88]/10 border border-[#00ff88]/20 flex items-center justify-center text-[#00ff88]">
+              <div className="w-12 h-12 rounded-xl bg-[#ff8c00]/10 border border-[#ff8c00]/20 flex items-center justify-center text-[#ff8c00]">
                 {f.icon}
               </div>
               <h3 className="font-display font-bold text-white text-base leading-tight">{f.title}</h3>
-              <p className="text-[#6b8c74] text-sm leading-relaxed">{f.desc}</p>
+              <p className="text-[#8c7050] text-sm leading-relaxed">{f.desc}</p>
             </motion.div>
           ))}
         </div>

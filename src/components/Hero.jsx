@@ -38,19 +38,19 @@ function CandlestickChart() {
           className="flex flex-col items-center gap-0.5 flex-1"
         >
           {/* Wick top */}
-          <div className="w-px flex-1" style={{ background: c.up ? '#00ff88' : '#ff4d4d' }} />
+          <div className="w-px flex-1" style={{ background: c.up ? '#ff8c00' : '#ff4d4d' }} />
           {/* Body */}
           <div
             className="w-full rounded-sm"
             style={{
               height: `${c.b}px`,
               background: c.up
-                ? 'linear-gradient(180deg,#00ff88,#00c853)'
+                ? 'linear-gradient(180deg,#ff8c00,#e07000)'
                 : 'linear-gradient(180deg,#ff4d4d,#cc0000)',
             }}
           />
           {/* Wick bottom */}
-          <div className="w-px" style={{ height: 8, background: c.up ? '#00ff88' : '#ff4d4d' }} />
+          <div className="w-px" style={{ height: 8, background: c.up ? '#ff8c00' : '#ff4d4d' }} />
         </motion.div>
       ))}
     </div>
@@ -83,24 +83,24 @@ export default function Hero() {
         className="absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(0,255,136,1) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,1) 1px,transparent 1px)',
+            'linear-gradient(rgba(255,140,0,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,140,0,1) 1px,transparent 1px)',
           backgroundSize: '60px 60px',
         }}
       />
       {/* Radial glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full opacity-10"
-        style={{ background: 'radial-gradient(ellipse, #00ff88 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse, #ff8c00 0%, transparent 70%)' }}
       />
 
       {/* Ticker bar */}
-      <div className="mt-16 border-y border-[#1e3028] bg-[#0a0f0d]/80 py-2.5 ticker-wrap">
+      <div className="mt-16 border-y border-[#2e1f08] bg-[#0d0a06]/80 py-2.5 ticker-wrap">
         <div className="ticker-track flex gap-10">
           {tickerRow.map((t, i) => (
             <span key={i} className="inline-flex items-center gap-2 text-xs font-mono">
-              <span className="text-[#6b8c74]">{t.sym}</span>
+              <span className="text-[#8c7050]">{t.sym}</span>
               <span className="text-white font-semibold">{t.val}</span>
-              <span className={t.up ? 'text-[#00ff88]' : 'text-[#ff4d4d]'}>{t.chg}</span>
-              <span className="text-[#1e3028]">|</span>
+              <span className={t.up ? 'text-[#ff8c00]' : 'text-[#ff4d4d]'}>{t.chg}</span>
+              <span className="text-[#2e1f08]">|</span>
             </span>
           ))}
         </div>
@@ -114,10 +114,10 @@ export default function Hero() {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-[#0f1a14] border border-[#1e3028] rounded-full px-4 py-1.5 mb-6"
+            className="inline-flex items-center gap-2 bg-[#1a1206] border border-[#2e1f08] rounded-full px-4 py-1.5 mb-6"
           >
             <span className="live-dot" />
-            <span className="text-xs font-semibold text-[#00ff88] tracking-wider uppercase">
+            <span className="text-xs font-semibold text-[#ff8c00] tracking-wider uppercase">
               Live Trading Sessions Available
             </span>
           </motion.div>
@@ -128,7 +128,7 @@ export default function Hero() {
             Confidence.
           </h1>
 
-          <p ref={subRef} className="opacity-0 text-[#a8c5b2] text-lg leading-relaxed mb-6 max-w-xl">
+          <p ref={subRef} className="opacity-0 text-[#d4b896] text-lg leading-relaxed mb-6 max-w-xl">
             From beginner to profitable trader — master the stock market with 15+ years of expert guidance by <strong className="text-white">Hari</strong>,
             proven strategies, and live market sessions.
           </p>
@@ -137,14 +137,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6 }}
-            className="mb-8 p-4 rounded-xl bg-[#0f1a14] border border-[#00ff88]/20 flex items-center gap-3 max-w-lg"
+            className="mb-8 p-4 rounded-xl bg-[#1a1206] border border-[#ff8c00]/20 flex items-center gap-3 max-w-lg"
           >
             <span className="flex h-3 w-3 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00ff88] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-[#00ff88]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff8c00] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-[#ff8c00]"></span>
             </span>
             <div className="text-xs">
-              <span className="text-white font-bold">SUMMER CAMP OFFER:</span> Get the full course for <span className="text-[#00ff88] font-bold">₹19,999</span> <span className="text-[#6b8c74] line-through">₹30,000+</span> + get 25% referral commissions!
+              <span className="text-white font-bold">SUMMER CAMP OFFER:</span> Get the full course for <span className="text-[#ff8c00] font-bold">₹19,999</span> <span className="text-[#8c7050] line-through">₹30,000+</span> + get 25% referral commissions!
             </div>
           </motion.div>
 
@@ -158,8 +158,8 @@ export default function Hero() {
               Explore Courses <ArrowRight size={18} />
             </button>
             <button className="btn-outline px-7 py-3.5 text-base flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-[#00ff88]/10 border border-[#00ff88]/30 flex items-center justify-center">
-                <Play size={12} fill="#00ff88" className="text-[#00ff88] ml-0.5" />
+              <div className="w-8 h-8 rounded-full bg-[#ff8c00]/10 border border-[#ff8c00]/30 flex items-center justify-center">
+                <Play size={12} fill="#ff8c00" className="text-[#ff8c00] ml-0.5" />
               </div>
               Watch Intro
             </button>
@@ -176,8 +176,8 @@ export default function Hero() {
               { icon: <BarChart2 size={16} />, label: 'Proven Strategies' },
               { icon: <ShieldCheck size={16} />, label: 'Community & Support' },
             ].map((f, i) => (
-              <div key={i} className="flex items-center gap-2 text-sm text-[#a8c5b2]">
-                <span className="text-[#00ff88]">{f.icon}</span>
+              <div key={i} className="flex items-center gap-2 text-sm text-[#d4b896]">
+                <span className="text-[#ff8c00]">{f.icon}</span>
                 {f.label}
               </div>
             ))}
@@ -195,12 +195,12 @@ export default function Hero() {
             {/* Header */}
             <div className="flex items-center justify-between mb-4">
               <div>
-                <p className="text-xs text-[#6b8c74] uppercase tracking-wider">Portfolio Today</p>
+                <p className="text-xs text-[#8c7050] uppercase tracking-wider">Portfolio Today</p>
                 <p className="text-3xl font-display font-bold text-white mt-0.5">+12.45%</p>
               </div>
-              <div className="bg-[#00ff88]/10 border border-[#00ff88]/20 rounded-xl px-4 py-2 text-right">
-                <p className="text-xs text-[#6b8c74]">Profit</p>
-                <p className="text-[#00ff88] font-bold text-lg">₹24,890</p>
+              <div className="bg-[#ff8c00]/10 border border-[#ff8c00]/20 rounded-xl px-4 py-2 text-right">
+                <p className="text-xs text-[#8c7050]">Profit</p>
+                <p className="text-[#ff8c00] font-bold text-lg">₹24,890</p>
               </div>
             </div>
 
@@ -208,7 +208,7 @@ export default function Hero() {
             <CandlestickChart />
 
             {/* Divider */}
-            <div className="border-t border-[#1e3028] my-4" />
+            <div className="border-t border-[#2e1f08] my-4" />
 
             {/* Stats row */}
             <div className="grid grid-cols-3 gap-4">
@@ -218,20 +218,20 @@ export default function Hero() {
                 { label: 'Returns', val: '3.2x' },
               ].map((s, i) => (
                 <div key={i} className="text-center">
-                  <p className="text-[#00ff88] font-bold text-xl">{s.val}</p>
-                  <p className="text-[#6b8c74] text-xs mt-0.5">{s.label}</p>
+                  <p className="text-[#ff8c00] font-bold text-xl">{s.val}</p>
+                  <p className="text-[#8c7050] text-xs mt-0.5">{s.label}</p>
                 </div>
               ))}
             </div>
 
             {/* Course progress pill */}
-            <div className="mt-4 bg-[#0a0f0d] rounded-xl p-3 flex items-center gap-3 border border-[#1e3028]">
+            <div className="mt-4 bg-[#0d0a06] rounded-xl p-3 flex items-center gap-3 border border-[#2e1f08]">
               <div className="w-8 h-8 rounded-lg gradient-brand flex items-center justify-center shrink-0">
-                <Play size={12} fill="#0a0f0d" className="text-[#0a0f0d] ml-0.5" />
+                <Play size={12} fill="#0d0a06" className="text-[#0d0a06] ml-0.5" />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-xs font-semibold text-white truncate">Price Action Basics</p>
-                <div className="mt-1.5 h-1 bg-[#1e3028] rounded-full overflow-hidden">
+                <div className="mt-1.5 h-1 bg-[#2e1f08] rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: '72%' }}
@@ -240,15 +240,15 @@ export default function Hero() {
                   />
                 </div>
               </div>
-              <span className="text-xs text-[#00ff88] font-bold shrink-0">72%</span>
+              <span className="text-xs text-[#ff8c00] font-bold shrink-0">72%</span>
             </div>
           </div>
         </motion.div>
       </div>
 
       {/* Bottom trust bar */}
-      <div className="border-t border-[#1e3028] bg-[#0a0f0d]/60 py-5">
-        <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-10 text-sm text-[#6b8c74]">
+      <div className="border-t border-[#2e1f08] bg-[#0d0a06]/60 py-5">
+        <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-10 text-sm text-[#8c7050]">
           {[
             '⭐ 4.9/5 Rating',
             '10,000+ Students Enrolled',
