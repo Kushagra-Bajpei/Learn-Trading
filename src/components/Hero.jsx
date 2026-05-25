@@ -92,8 +92,8 @@ export default function Hero() {
         style={{ background: 'radial-gradient(ellipse, #ff8c00 0%, transparent 70%)' }}
       />
 
-      {/* Ticker bar border-y border-[#2e1f08] bg-[#0d0a06]/80 py-2 ticker-wrap */}
-      <div className="mt-16 lg:mt-6 border-y border-[#2e1f08] bg-[#0d0a06]/80 py-1.5 ticker-wrap">
+      {/* Ticker bar — mt-16 on mobile keeps it below fixed navbar, lg reduces spacing */}
+      <div className="mt-16 border-y border-[#2e1f08] bg-[#0d0a06]/80 py-1.5 ticker-wrap">
         <div className="ticker-track flex gap-10">
           {tickerRow.map((t, i) => (
             <span key={i} className="inline-flex items-center gap-2 text-xs font-mono">
@@ -106,8 +106,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Main hero */}
-      <div className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-6 lg:gap-8 items-center py-4 sm:py-6 lg:py-2">
+      {/* Main hero — single col on mobile, 2-col on lg+ */}
+      <div className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center py-8 sm:py-10 lg:py-2">
         {/* Left */}
         <div>
           <motion.div
@@ -184,12 +184,12 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right – chart card */}
+        {/* Right – chart card — hidden on mobile, visible from lg upwards */}
         <motion.div
           initial={{ opacity: 0, x: 60, scale: 0.95 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.9, ease: 'easeOut' }}
-          className="float-anim"
+          className="float-anim hidden lg:block"
         >
           <div className="glass rounded-2xl p-4 lg:p-5 glow">
             {/* Header */}

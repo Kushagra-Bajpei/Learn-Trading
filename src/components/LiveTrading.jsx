@@ -31,7 +31,8 @@ export default function LiveTrading() {
       <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-80 h-80 rounded-full opacity-10"
         style={{ background: 'radial-gradient(circle, #ff8c00, transparent)' }} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        {/* On mobile: single column stack. On lg+: 2-col side by side */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <motion.div ref={ref} initial={{ opacity: 0, x: -50 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8 }}>
             <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 rounded-full px-4 py-1.5 mb-6">
               <span className="live-dot" />
@@ -44,6 +45,7 @@ export default function LiveTrading() {
               Watch a professional trader execute real trades in real time. Learn to read markets,
               manage risk, and make confident decisions — with live commentary and Q&A.
             </p>
+            {/* Feature cards: 1 col on mobile, 2 col on sm+ */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
               {[
                 { icon: <Radio size={18} />, title: '4 Live Sessions/Week', sub: 'Mon, Wed, Fri, Sat' },
@@ -84,7 +86,8 @@ export default function LiveTrading() {
                       <Calendar size={13} className="text-[#ff8c00] mx-auto mt-0.5 sm:mt-1" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-white text-xs sm:text-sm font-semibold truncate">{s.topic}</p>
+                      {/* Use break-words instead of truncate so long titles wrap on very small screens */}
+                      <p className="text-white text-xs sm:text-sm font-semibold leading-snug break-words">{s.topic}</p>
                       <p className="text-[#8c7050] text-[10px] sm:text-xs mt-0.5">{s.time}</p>
                     </div>
                     <div className="text-right shrink-0">
@@ -95,9 +98,11 @@ export default function LiveTrading() {
                 ))}
               </div>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+
+            {/* Stats: 3 equal columns always — short labels fit fine */}
+            <div className="grid grid-cols-3 gap-3">
               {[{ val: '200+', label: 'Sessions' }, { val: '₹2.4Cr', label: 'Profits' }, { val: '94%', label: 'Success' }].map((s, i) => (
-                <div key={i} className={`gradient-card border border-[#2e1f08] rounded-xl p-3 sm:p-4 text-center ${i === 2 ? 'col-span-2 sm:col-span-1' : ''}`}>
+                <div key={i} className="gradient-card border border-[#2e1f08] rounded-xl p-3 sm:p-4 text-center">
                   <p className="text-[#ff8c00] font-display font-bold text-xl sm:text-2xl">{s.val}</p>
                   <p className="text-[#8c7050] text-[10px] sm:text-xs mt-1">{s.label}</p>
                 </div>
