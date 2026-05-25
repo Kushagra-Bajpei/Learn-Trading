@@ -128,8 +128,8 @@ export default function Hero() {
             Confidence.
           </h1>
 
-          <p ref={subRef} className="opacity-0 text-[#a8c5b2] text-lg leading-relaxed mb-8 max-w-xl">
-            From beginner to profitable trader — master the stock market with 15+ years of expert guidance,
+          <p ref={subRef} className="opacity-0 text-[#a8c5b2] text-lg leading-relaxed mb-6 max-w-xl">
+            From beginner to profitable trader — master the stock market with 15+ years of expert guidance by <strong className="text-white">Hari</strong>,
             proven strategies, and live market sessions.
           </p>
 
@@ -137,6 +137,21 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6 }}
+            className="mb-8 p-4 rounded-xl bg-[#0f1a14] border border-[#00ff88]/20 flex items-center gap-3 max-w-lg"
+          >
+            <span className="flex h-3 w-3 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00ff88] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-[#00ff88]"></span>
+            </span>
+            <div className="text-xs">
+              <span className="text-white font-bold">SUMMER CAMP OFFER:</span> Get the full course for <span className="text-[#00ff88] font-bold">₹19,999</span> <span className="text-[#6b8c74] line-through">₹30,000+</span> + get 25% referral commissions!
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0, duration: 0.6 }}
             className="flex flex-wrap gap-4 mb-10"
           >
             <button className="btn-primary px-7 py-3.5 text-base flex items-center gap-2 relative z-10">

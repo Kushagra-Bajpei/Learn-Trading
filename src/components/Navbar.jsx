@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TrendingUp, Menu, X } from 'lucide-react';
 
-const links = ['Home', 'Courses', 'Live Trading', 'Instructor', 'Pricing'];
+const links = ['Home', 'Courses', 'Live Trading', 'Instructor', 'Pricing', 'Referral'];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,8 +30,8 @@ export default function Navbar() {
             <TrendingUp size={18} className="text-[#0a0f0d]" strokeWidth={3} />
           </div>
           <div className="leading-tight">
-            <span className="font-display font-800 text-white text-lg tracking-tight">Trade</span>
-            <span className="font-display font-800 gradient-text text-lg tracking-tight">Mastery</span>
+            <span className="font-display font-800 text-white text-lg tracking-tight">Trade with</span>
+            <span className="font-display font-800 gradient-text text-lg tracking-tight"> Hari</span>
             <p className="text-[10px] text-[#6b8c74] -mt-1 tracking-widest uppercase">Learn · Trade · Grow</p>
           </div>
         </a>

@@ -1,159 +1,145 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Check, Zap, Crown, Star } from 'lucide-react';
-
-const plans = [
-  {
-    name: 'Starter',
-    icon: <Zap size={22} />,
-    price: '₹4,999',
-    original: '₹9,999',
-    period: 'one-time',
-    color: '#00ff88',
-    desc: 'Perfect for beginners entering the market',
-    features: [
-      'Trading for Beginners Course',
-      'Basic Technical Analysis',
-      '3 Months Community Access',
-      'Email Support',
-      '30-Day Money Back Guarantee',
-    ],
-    notIncluded: ['Live Trading Sessions', 'Advanced Courses', '1-on-1 Mentorship'],
-    popular: false,
-  },
-  {
-    name: 'Pro Trader',
-    icon: <Star size={22} />,
-    price: '₹14,999',
-    original: '₹29,999',
-    period: 'one-time',
-    color: '#a855f7',
-    desc: 'Most popular — everything you need to trade professionally',
-    features: [
-      'All 5 Courses Included',
-      'Advanced Technical Analysis',
-      '12 Months Community Access',
-      '4 Live Sessions/Week Access',
-      'Live Session Recordings',
-      'Priority Email & WhatsApp Support',
-      '30-Day Money Back Guarantee',
-    ],
-    notIncluded: ['1-on-1 Mentorship'],
-    popular: true,
-  },
-  {
-    name: 'Elite Mastery',
-    icon: <Crown size={22} />,
-    price: '₹29,999',
-    original: '₹59,999',
-    period: 'one-time',
-    color: '#eab308',
-    desc: 'Complete package with personal mentorship',
-    features: [
-      'All Courses — Lifetime Access',
-      'All Future Courses Free',
-      'Lifetime Community Access',
-      'Unlimited Live Sessions',
-      '4 x 1-on-1 Mentorship Calls',
-      'Personal Trading Plan Review',
-      'Dedicated WhatsApp Support',
-      '30-Day Money Back Guarantee',
-    ],
-    notIncluded: [],
-    popular: false,
-  },
-];
+import { Check, Star, Users, Flame, Award, Gift } from 'lucide-react';
 
 export default function Pricing() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
-  const [annual, setAnnual] = useState(false);
+
+  const courseFeatures = [
+    'Basic to Advanced Level Stock Market Training',
+    'Live Trading Sessions in Real Market Conditions',
+    'Learn Practical & Proven Trading Strategies',
+    'Taught by Hari (Professional Trader with 15 Years Experience)',
+    'Comprehensive Options & Price Action Modules',
+    'Interactive Q&A and Live Chat Support during sessions',
+    'Lifetime Access to Session Recordings & Course Material',
+    'Exclusive Student WhatsApp & Discord Group Access'
+  ];
 
   return (
     <section id="pricing" className="py-24 bg-[#0a0f0d] relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-64 opacity-5 rounded-full"
-        style={{ background: 'radial-gradient(ellipse, #00ff88, transparent)' }} />
+      {/* Background decoration */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] opacity-10 rounded-full blur-[100px]"
+        style={{ background: 'radial-gradient(circle, #00ff88, transparent 70%)' }} />
 
       <div className="max-w-7xl mx-auto px-6">
         <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }} className="text-center mb-14">
-          <p className="text-[#00ff88] text-sm font-semibold uppercase tracking-widest mb-3">Simple Pricing</p>
+          <p className="text-[#00ff88] text-sm font-semibold uppercase tracking-widest mb-3 flex items-center justify-center gap-2">
+            <Flame size={16} className="text-orange-500 animate-pulse" /> Summer Camp Offer <Flame size={16} className="text-orange-500 animate-pulse" />
+          </p>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-            Invest in Your <span className="gradient-text">Trading Future</span>
+            Invest in Your <span className="gradient-text">Financial Future</span>
           </h2>
-          <p className="text-[#6b8c74] max-w-lg mx-auto mb-8">
-            One-time payment. Lifetime value. No hidden fees or monthly subscriptions.
+          <p className="text-[#6b8c74] max-w-lg mx-auto">
+            Get complete basic-to-advanced trading education & live sessions at a special limited-time price.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 items-start">
-          {plans.map((plan, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 50 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.15, duration: 0.6 }}
-              className={`relative rounded-2xl border p-7 flex flex-col gap-5 card-hover ${
-                plan.popular
-                  ? 'border-purple-500/60 bg-gradient-to-b from-purple-900/20 to-[#0a0f0d] glow'
-                  : 'border-[#1e3028] gradient-card'
-              }`}
-            >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-purple-500 text-white text-xs font-bold px-4 py-1.5 rounded-full">
-                  MOST POPULAR
-                </div>
-              )}
+        <div className="grid lg:grid-cols-12 gap-8 items-stretch">
+          {/* Main Course Pricing Card */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-7 relative rounded-3xl border border-[#00ff88]/30 bg-gradient-to-b from-[#0f1a14] to-[#0a0f0d] p-8 md:p-10 glow flex flex-col justify-between"
+          >
+            <div className="absolute -top-4 right-8 bg-[#00ff88] text-[#0a0f0d] text-xs font-black px-4 py-1.5 rounded-full tracking-wider uppercase flex items-center gap-1.5 shadow-lg">
+              <Flame size={12} fill="#0a0f0d" /> Summer Special
+            </div>
 
-              <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center"
-                  style={{ background: `${plan.color}18`, border: `1px solid ${plan.color}40`, color: plan.color }}>
-                  {plan.icon}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-[#00ff88]/10 border border-[#00ff88]/20 flex items-center justify-center text-[#00ff88]">
+                  <Star size={24} fill="#00ff88" />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-white text-lg">{plan.name}</h3>
-                  <p className="text-[#6b8c74] text-xs">{plan.desc}</p>
+                  <h3 className="font-display font-extrabold text-white text-2xl">Complete Trading Course</h3>
+                  <p className="text-[#6b8c74] text-sm">Basic to Advanced + Live Trading Sessions</p>
                 </div>
               </div>
 
-              <div>
-                <div className="flex items-end gap-2">
-                  <span className="font-display font-bold text-4xl text-white">{plan.price}</span>
-                  <span className="text-[#6b8c74] text-sm line-through mb-1">{plan.original}</span>
+              <div className="mb-8 bg-[#0a0f0d]/50 rounded-2xl p-5 border border-[#1e3028] inline-block">
+                <p className="text-xs text-[#6b8c74] uppercase tracking-wider">Special Price</p>
+                <div className="flex items-baseline gap-3 mt-1">
+                  <span className="font-display font-black text-5xl text-[#00ff88] tracking-tight">₹19,999</span>
+                  <span className="text-[#6b8c74] text-lg line-through">₹30,000+</span>
                 </div>
-                <p className="text-[#6b8c74] text-xs mt-1">{plan.period} · No EMI required</p>
+                <p className="text-[#00ff88] text-xs font-semibold mt-1">🔥 Save over ₹10,000 today (One-time payment)</p>
               </div>
 
-              <div className="border-t border-[#1e3028] pt-4 space-y-2.5 flex-1">
-                {plan.features.map((f, j) => (
-                  <div key={j} className="flex items-start gap-2.5">
-                    <Check size={15} className="shrink-0 mt-0.5" style={{ color: plan.color }} />
-                    <span className="text-[#a8c5b2] text-sm">{f}</span>
-                  </div>
-                ))}
-                {plan.notIncluded.map((f, j) => (
-                  <div key={j} className="flex items-start gap-2.5 opacity-35">
-                    <Check size={15} className="shrink-0 mt-0.5 text-[#6b8c74]" />
-                    <span className="text-[#6b8c74] text-sm line-through">{f}</span>
+              <div className="space-y-3.5 mb-8">
+                {courseFeatures.map((f, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <Check size={18} className="text-[#00ff88] shrink-0 mt-0.5" />
+                    <span className="text-[#a8c5b2] text-sm md:text-base">{f}</span>
                   </div>
                 ))}
               </div>
+            </div>
 
-              <button
-                className={`w-full py-3.5 rounded-xl font-bold text-sm transition-all duration-300 ${
-                  plan.popular
-                    ? 'bg-purple-500 hover:bg-purple-400 text-white glow-sm'
-                    : 'btn-outline'
-                }`}
-                style={plan.popular ? {} : { borderColor: `${plan.color}60`, color: plan.color }}
-              >
-                Get {plan.name}
-              </button>
-            </motion.div>
-          ))}
+            <button className="btn-primary w-full py-4 text-base font-bold uppercase tracking-wider relative z-10">
+              Enroll in Summer Camp Now →
+            </button>
+          </motion.div>
+
+          {/* Referral Commission Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:col-span-5 relative rounded-3xl border border-purple-500/30 bg-gradient-to-b from-[#13111c] to-[#0a0f0d] p-8 md:p-10 flex flex-col justify-between"
+          >
+            <div className="absolute -top-4 right-8 bg-purple-500 text-white text-xs font-black px-4 py-1.5 rounded-full tracking-wider uppercase flex items-center gap-1.5 shadow-lg">
+              <Gift size={12} fill="white" /> Share & Earn
+            </div>
+
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+                  <Users size={24} />
+                </div>
+                <div>
+                  <h3 className="font-display font-extrabold text-white text-2xl">Referral Program</h3>
+                  <p className="text-[#6b8c74] text-sm">Earn while your network learns</p>
+                </div>
+              </div>
+
+              <div className="mb-8 bg-[#0a0f0d]/50 rounded-2xl p-5 border border-[#1e3028] inline-block w-full">
+                <p className="text-xs text-[#6b8c74] uppercase tracking-wider">Referral Reward</p>
+                <div className="flex items-baseline gap-2 mt-1">
+                  <span className="font-display font-black text-4xl text-purple-400 tracking-tight">25% Commission</span>
+                </div>
+                <p className="text-purple-300 text-xs font-semibold mt-1.5">💸 Earn ₹5,000 for every friend who joins!</p>
+              </div>
+
+              <div className="space-y-4 text-sm text-[#a8c5b2] mb-8">
+                <p className="leading-relaxed">
+                  Join our affiliate network and help others build a career in stock trading. When they register using your referral code or link:
+                </p>
+                <div className="space-y-3 bg-[#0a0f0d]/30 p-4 rounded-xl border border-[#1e3028]">
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-300 flex items-center justify-center text-xs font-bold shrink-0">1</div>
+                    <p className="text-xs">Get your unique referral link upon enrollment.</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-300 flex items-center justify-center text-xs font-bold shrink-0">2</div>
+                    <p className="text-xs">Share on WhatsApp, YouTube, Instagram or Telegram.</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-300 flex items-center justify-center text-xs font-bold shrink-0">3</div>
+                    <p className="text-xs">Receive direct bank transfer within 24 hours of successful referral payment.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button className="w-full py-4 rounded-xl border border-purple-500/40 text-purple-400 font-bold hover:bg-purple-500/10 transition-colors uppercase tracking-wider">
+              Become a Referrer Now
+            </button>
+          </motion.div>
         </div>
-
-        <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.7 }}
-          className="text-center text-[#6b8c74] text-sm mt-8">
-          🔒 Secure Payment · 30-Day Money Back Guarantee · Trusted by 10,000+ Students
-        </motion.p>
       </div>
     </section>
   );

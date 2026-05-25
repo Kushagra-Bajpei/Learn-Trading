@@ -4,15 +4,15 @@ import { Star, Quote } from 'lucide-react';
 
 const testimonials = [
   { name: 'Arjun Sharma', role: 'Full-Time Trader', location: 'Mumbai', rating: 5, avatar: 'AS', color: '#00ff88',
-    text: 'TradeMastery completely changed my life. In 6 months I went from losing money consistently to making ₹80,000/month from trading. Rajesh sir\'s Price Action course is pure gold.' },
+    text: 'Trade with Hari completely changed my life. In 6 months I went from losing money consistently to making ₹80,000/month from trading. Hari sir\'s Price Action course is pure gold.' },
   { name: 'Priya Patel', role: 'IT Professional & Trader', location: 'Bangalore', rating: 5, avatar: 'PP', color: '#a855f7',
     text: 'The live sessions are absolutely incredible. Watching a real trade being placed with full explanation gives you so much confidence. I\'ve recovered my course fees in the first month itself!' },
   { name: 'Vikram Singh', role: 'Options Trader', location: 'Delhi', rating: 5, avatar: 'VS', color: '#3b82f6',
     text: 'I was skeptical at first but the Options Trading Blueprint course is hands down the best investment I have made. Cleared my first ₹1 lakh profit in 3 months of joining.' },
   { name: 'Meena Reddy', role: 'Homemaker & Investor', location: 'Hyderabad', rating: 5, avatar: 'MR', color: '#f97316',
-    text: 'I had zero knowledge about stock markets. After completing the Beginners course I started SIP+trading and now my portfolio is up 34% YoY. Thank you TradeMastery!' },
+    text: 'I had zero knowledge about stock markets. After completing the Beginners course I started SIP+trading and now my portfolio is up 34% YoY. Thank you Trade with Hari!' },
   { name: 'Rohit Gupta', role: 'CA & Trader', location: 'Pune', rating: 5, avatar: 'RG', color: '#eab308',
-    text: 'As a CA I thought I understood markets, but Rajesh sir\'s technical analysis framework was eye-opening. The community support group alone is worth the entire course fee.' },
+    text: 'As a CA I thought I understood markets, but Hari sir\'s technical analysis framework was eye-opening. The community support group alone is worth the entire course fee.' },
   { name: 'Sanjay Mehta', role: 'Retired Banker', location: 'Chennai', rating: 5, avatar: 'SM', color: '#ef4444',
     text: 'Enrolled after retirement to generate passive income. The structured learning path made it easy even at my age. Now earning ₹45,000/month consistently from markets.' },
 ];
@@ -34,7 +34,7 @@ export default function Testimonials() {
             Real Traders. <span className="gradient-text">Real Results.</span>
           </h2>
           <p className="text-[#6b8c74] max-w-lg mx-auto">
-            Join 10,000+ students who have transformed their financial future with TradeMastery.
+            Join 10,000+ students who have transformed their financial future with Trade with Hari.
           </p>
         </motion.div>
 

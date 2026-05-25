@@ -5,11 +5,11 @@ import { Award, BookOpen, TrendingUp, Globe, Share2, Rss, CheckCircle2 } from 'l
 
 const achievements = [
   '15+ Years of Active Trading Experience',
-  'Traded ₹500Cr+ in cumulative volume',
+  'Expert in Nifty, Bank Nifty, Options & Intraday',
   'Trained 10,000+ students across India',
-  'Featured on CNBC & Zee Business',
-  'Expert in Nifty, Bank Nifty & Options',
-  'Author of "Price Action Decoded" Book',
+  'Live Trading Sessions with Real Capital',
+  'Proven Strategies for Consistent Profitability',
+  'Mentor, Coach & Full-Time Professional Trader',
 ];
 
 const stats = [
@@ -59,7 +59,7 @@ export default function Instructor() {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-20 h-20 rounded-full gradient-brand mx-auto flex items-center justify-center mb-2">
-                        <span className="text-[#0a0f0d] font-display font-bold text-3xl">RK</span>
+                        <span className="text-[#0a0f0d] font-display font-bold text-3xl">H</span>
                       </div>
                       <p className="text-[#6b8c74] text-xs">Professional Trader</p>
                     </div>
@@ -67,8 +67,8 @@ export default function Instructor() {
                 </div>
 
                 <div className="text-center mb-6">
-                  <h3 className="font-display font-bold text-white text-2xl">Rajesh Kumar</h3>
-                  <p className="text-[#00ff88] text-sm font-semibold mt-1">SEBI Registered Analyst & Head Trainer</p>
+                  <h3 className="font-display font-bold text-white text-2xl">Hari</h3>
+                  <p className="text-[#00ff88] text-sm font-semibold mt-1">Professional Trader & Lead Instructor</p>
                 </div>
 
                 {/* Stats */}
@@ -104,14 +104,14 @@ export default function Instructor() {
               <span className="gradient-text">Now Yours to Learn</span>
             </h3>
             <p className="text-[#a8c5b2] leading-relaxed mb-6">
-              Rajesh Kumar has been trading the Indian stock markets since 2009 — through bull markets, bear markets,
-              black swan events, and everything in between. His systematic, risk-first approach has consistently
-              delivered returns above market benchmarks.
+              Hari is a full-time professional trader with over 15 years of experience in the Indian stock markets.
+              He has traded through bull runs, bear markets, and major black swan events — developing a battle-tested,
+              risk-first approach that delivers consistent results.
             </p>
             <p className="text-[#a8c5b2] leading-relaxed mb-8">
-              He founded TradeMastery to democratize quality trading education in India. His teaching style is
-              practical, jargon-free, and results-focused — whether you're a complete beginner or an experienced trader
-              looking to level up.
+              He founded <strong className="text-white">Trade with Hari</strong> to give every aspiring trader access to
+              genuine, no-nonsense market education. His teaching is practical, jargon-free, and built on real trading —
+              not theory. Whether you are a complete beginner or looking to level up, Hari's guidance will transform how you trade.
             </p>
 
             <div className="space-y-3 mb-8">
@@ -125,7 +125,7 @@ export default function Instructor() {
               ))}
             </div>
 
-            <button className="btn-primary px-8 py-3.5 relative z-10">Learn From Rajesh →</button>
+            <button className="btn-primary px-8 py-3.5 relative z-10">Learn From Hari →</button>
           </motion.div>
         </div>
       </div>

@@ -149,10 +149,12 @@ function CourseCard({ course, index, inView }) {
 
         <div className="border-t border-[#1e3028] pt-3 flex items-center justify-between">
           <div>
-            <span className="text-[#00ff88] font-display font-bold text-xl">{course.price}</span>
-            <span className="text-[#6b8c74] text-xs line-through ml-2">{course.originalPrice}</span>
+            <p className="text-[#6b8c74] text-xs">Individual Value</p>
+            <p className="text-white font-semibold text-sm">{course.price}</p>
           </div>
-          <button className="btn-primary text-xs px-4 py-2 relative z-10">Enroll Now</button>
+          <span className="bg-[#00ff88]/10 text-[#00ff88] border border-[#00ff88]/20 text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">
+            Included in Bundle
+          </span>
         </div>
       </div>
     </motion.div>

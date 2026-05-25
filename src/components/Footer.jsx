@@ -20,12 +20,12 @@ export default function Footer() {
                 <TrendingUp size={18} className="text-[#0a0f0d]" strokeWidth={3} />
               </div>
               <div className="leading-tight">
-                <span className="font-display font-bold text-white text-lg">Trade</span>
-                <span className="font-display font-bold gradient-text text-lg">Mastery</span>
+                <span className="font-display font-bold text-white text-lg">Trade with</span>
+                <span className="font-display font-bold gradient-text text-lg"> Hari</span>
               </div>
             </a>
             <p className="text-[#6b8c74] text-sm leading-relaxed mb-5 max-w-xs">
-              India's most trusted stock market education platform. Learn from a 15-year professional trader and start your journey to financial freedom.
+              India's most trusted stock market education platform. Learn from Hari, a 15-year professional trader, and start your journey to financial freedom.
             </p>
             <div className="flex gap-3">
               {[Rss, Share2, Globe, ExternalLink].map((Icon, i) => (
@@ -54,7 +54,7 @@ export default function Footer() {
         {/* Contact bar */}
         <div className="grid md:grid-cols-3 gap-4 mb-10 bg-[#0f1a14] border border-[#1e3028] rounded-2xl p-5">
           {[
-            { icon: <Mail size={15} />, label: 'Email Us', val: 'support@trademastery.in' },
+            { icon: <Mail size={15} />, label: 'Email Us', val: 'support@tradewithhari.com' },
             { icon: <Phone size={15} />, label: 'Call / WhatsApp', val: '+91 98765 43210' },
             { icon: <MapPin size={15} />, label: 'Location', val: 'Mumbai, Maharashtra, India' },
           ].map((c, i) => (
@@ -70,7 +70,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-[#1e3028] pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#6b8c74]">
-          <p>© 2024 TradeMastery. All rights reserved. SEBI Registered Research Analyst.</p>
+          <p>© 2026 Trade with Hari. All rights reserved. SEBI Registered Research Analyst.</p>
           <p className="text-center">
             ⚠️ Trading involves risk. Past performance is not indicative of future results. Please read all disclosures.
           </p>

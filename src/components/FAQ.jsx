@@ -6,8 +6,8 @@ const faqs = [
   { q: 'Do I need any prior knowledge to join?', a: 'No! Our Trading for Beginners course starts from absolute zero. We cover everything from what a stock is to advanced trading strategies. Anyone can join and learn.' },
   { q: 'Are the live sessions recorded?', a: 'Yes, all live trading sessions are recorded and uploaded within 24 hours. You can watch them anytime at your convenience, even if you miss the live session.' },
   { q: 'What markets do you teach?', a: 'We primarily focus on Indian markets — NSE/BSE stocks, Nifty 50, Bank Nifty, equity derivatives (futures & options), and commodity trading basics.' },
-  { q: 'How long do I get access to the courses?', a: 'Starter plan gives 1-year access. Pro Trader gives 3-year access. Elite Mastery gives lifetime access including all future course updates at no extra cost.' },
-  { q: 'Is there a money-back guarantee?', a: 'Absolutely. We offer a 30-day no-questions-asked money-back guarantee on all plans. If you feel the course is not for you, just email us and we refund 100%.' },
+  { q: 'How long do I get access to the courses?', a: 'You get lifetime access to all courses, resources, recordings, and future updates when you enroll in the Summer Camp Offer.' },
+  { q: 'Is there a money-back guarantee?', a: 'Absolutely. We offer a 30-day no-questions-asked money-back guarantee. If you feel the course is not for you, just email us and we refund 100%.' },
   { q: 'What is the payment method?', a: 'We accept UPI, Net Banking, all major Credit/Debit Cards, and EMI options. Payments are processed securely through Razorpay.' },
   { q: 'How are the live sessions conducted?', a: 'Live sessions are conducted via Zoom with screen sharing of the trading terminal. Students can ask questions in real-time. Sessions are limited to 30 students for quality interaction.' },
   { q: 'Can I access courses on mobile?', a: 'Yes! Our platform is fully mobile-responsive. You can watch video lessons, attend live sessions, and access community support from any device.' },
@@ -77,7 +77,7 @@ export default function FAQ() {
           className="text-center mt-10">
           <p className="text-[#6b8c74] text-sm">
             Still have questions?{' '}
-            <a href="mailto:support@trademastery.in" className="text-[#00ff88] hover:underline font-semibold">
+            <a href="mailto:support@tradewithhari.com" className="text-[#00ff88] hover:underline font-semibold">
               Contact us →
             </a>
           </p>
