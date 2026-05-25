@@ -31,7 +31,7 @@ export default function Navbar() {
           </div>
           <div className="leading-tight">
             <span className="font-display font-800 text-white text-lg tracking-tight">Trade with</span>
-            <span className="font-display font-800 gradient-text text-lg tracking-tight"> Hari</span>
+            <span className="font-display font-800 gradient-text text-lg tracking-tight"> Bhardwaj</span>
             <p className="text-[10px] text-[#6b8c74] -mt-1 tracking-widest uppercase">Learn · Trade · Grow</p>
           </div>
         </a>
