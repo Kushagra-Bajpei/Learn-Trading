@@ -41,9 +41,7 @@ export default function Navbar({ onLinkClick }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-18 py-4">
         {/* Logo — min-w-0 prevents flex overflow into hamburger area */}
         <a href="#" onClick={handleLogoClick} className="flex items-center gap-2 group min-w-0 flex-shrink">
-          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg gradient-brand flex items-center justify-center glow-sm shrink-0">
-            <TrendingUp size={16} className="text-[#0d0a06]" strokeWidth={3} />
-          </div>
+          <img src="/logo.png" alt="Trade with Bhardwaj Logo" className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg shrink-0 object-cover shadow-lg border border-[#ff8c00]/20" />
           <div className="leading-tight min-w-0 overflow-hidden">
             <div className="flex items-baseline gap-0 flex-wrap">
               <span className="font-display font-bold text-white text-base sm:text-lg tracking-tight whitespace-nowrap">Trade with</span>
