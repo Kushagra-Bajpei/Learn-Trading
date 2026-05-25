@@ -167,7 +167,7 @@ export default function Courses() {
 
   return (
     <section id="courses" className="py-24 bg-[#0a0705]">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -176,7 +176,7 @@ export default function Courses() {
           className="text-center mb-14"
         >
           <p className="text-[#ff8c00] text-sm font-semibold uppercase tracking-widest mb-3">What We Offer</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Our Top <span className="gradient-text">Courses</span>
           </h2>
           <p className="text-[#8c7050] max-w-xl mx-auto">

@@ -37,16 +37,16 @@ export default function Instructor() {
       <div className="absolute right-0 top-0 w-96 h-96 opacity-5 rounded-full"
         style={{ background: 'radial-gradient(circle, #ff8c00, transparent)' }} />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }} className="text-center mb-16">
           <p className="text-[#ff8c00] text-sm font-semibold uppercase tracking-widest mb-3">Your Mentor</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white">
             Meet Your <span className="gradient-text">Expert Instructor</span>
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Avatar card */}
           <div ref={imgRef} className="opacity-0 relative">
             <div className="relative mx-auto w-fit">
@@ -54,7 +54,7 @@ export default function Instructor() {
               <div className="absolute inset-0 rounded-3xl glow opacity-50" />
               <div className="gradient-card border border-[#ff8c00]/20 rounded-3xl p-8 relative z-10">
                 {/* Avatar placeholder */}
-                <div className="w-48 h-48 rounded-2xl mx-auto mb-6 overflow-hidden relative"
+                <div className="w-36 h-36 sm:w-48 sm:h-48 rounded-2xl mx-auto mb-6 overflow-hidden relative"
                   style={{ background: 'linear-gradient(135deg,#2a1800,#3d2400)' }}>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
@@ -99,7 +99,7 @@ export default function Instructor() {
           {/* Content */}
           <motion.div initial={{ opacity: 0, x: 50 }} animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.8 }}>
-            <h3 className="font-display text-3xl font-bold text-white mb-4">
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-4">
               15 Years of Market Mastery, <br />
               <span className="gradient-text">Now Yours to Learn</span>
             </h3>
@@ -125,7 +125,7 @@ export default function Instructor() {
               ))}
             </div>
 
-            <button className="btn-primary px-8 py-3.5 relative z-10">Learn From Bhardwaj →</button>
+            <button className="btn-primary px-6 sm:px-8 py-3.5 relative z-10 w-full sm:w-auto">Learn From Bhardwaj →</button>
           </motion.div>
         </div>
       </div>

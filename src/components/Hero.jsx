@@ -107,7 +107,7 @@ export default function Hero() {
       </div>
 
       {/* Main hero */}
-      <div className="flex-1 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center py-20">
+      <div className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center py-12 sm:py-16 lg:py-20">
         {/* Left */}
         <div>
           <motion.div
@@ -122,13 +122,13 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          <h1 ref={headRef} className="opacity-0 font-display text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">
+          <h1 ref={headRef} className="opacity-0 font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 sm:mb-6">
             Learn Trading.<br />
             <span className="gradient-text glow-text">Trade with</span><br />
             Confidence.
           </h1>
 
-          <p ref={subRef} className="opacity-0 text-[#d4b896] text-lg leading-relaxed mb-6 max-w-xl">
+          <p ref={subRef} className="opacity-0 text-[#d4b896] text-base sm:text-lg leading-relaxed mb-4 sm:mb-6 max-w-xl">
             From beginner to profitable trader — master the stock market with 15+ years of expert guidance by <strong className="text-white">Bhardwaj</strong>,
             proven strategies, and live market sessions.
           </p>
@@ -137,7 +137,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6 }}
-            className="mb-8 p-4 rounded-xl bg-[#1a1206] border border-[#ff8c00]/20 flex items-center gap-3 max-w-lg"
+            className="mb-6 sm:mb-8 p-3 sm:p-4 rounded-xl bg-[#1a1206] border border-[#ff8c00]/20 flex items-center gap-3 max-w-lg"
           >
             <span className="flex h-3 w-3 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff8c00] opacity-75"></span>
@@ -152,12 +152,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0, duration: 0.6 }}
-            className="flex flex-wrap gap-4 mb-10"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10"
           >
-            <button className="btn-primary px-7 py-3.5 text-base flex items-center gap-2 relative z-10">
+            <button className="btn-primary px-7 py-3.5 text-sm sm:text-base flex items-center justify-center gap-2 relative z-10 w-full sm:w-auto">
               Explore Courses <ArrowRight size={18} />
             </button>
-            <button className="btn-outline px-7 py-3.5 text-base flex items-center gap-2">
+            <button className="btn-outline px-7 py-3.5 text-sm sm:text-base flex items-center justify-center gap-2 w-full sm:w-auto">
               <div className="w-8 h-8 rounded-full bg-[#ff8c00]/10 border border-[#ff8c00]/30 flex items-center justify-center">
                 <Play size={12} fill="#ff8c00" className="text-[#ff8c00] ml-0.5" />
               </div>
@@ -248,7 +248,7 @@ export default function Hero() {
 
       {/* Bottom trust bar */}
       <div className="border-t border-[#2e1f08] bg-[#0d0a06]/60 py-5">
-        <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-10 text-sm text-[#8c7050]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-wrap justify-center gap-4 sm:gap-10 text-xs sm:text-sm text-[#8c7050]">
           {[
             '⭐ 4.9/5 Rating',
             '10,000+ Students Enrolled',

@@ -157,7 +157,7 @@ export default function CTABanner() {
           <span className="inline-block text-[#ff8c00] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
             Get In Touch
           </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
             We're Here to <span className="gradient-text glow-text">Help You</span>
           </h2>
           <p className="text-[#8c7050] text-base max-w-xl mx-auto">
@@ -165,7 +165,7 @@ export default function CTABanner() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-10 items-start">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-10 items-start">
 
           {/* Left: Contact Info Cards + Leaflet Map */}
           <motion.div

@@ -24,7 +24,7 @@ function FAQItem({ item, index, inView }) {
     >
       <button
         onClick={() => setOpen(!open)}
-        className={`w-full flex items-center justify-between px-6 py-5 text-left transition-colors duration-200 ${open ? 'bg-[#1a1206]' : 'bg-[#0d0a06] hover:bg-[#1a1206]'}`}
+        className={`w-full flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 text-left transition-colors duration-200 ${open ? 'bg-[#1a1206]' : 'bg-[#0d0a06] hover:bg-[#1a1206]'}`}
       >
         <span className="text-white font-semibold text-sm pr-4">{item.q}</span>
         <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.3 }}
@@ -57,11 +57,11 @@ export default function FAQ() {
 
   return (
     <section className="py-24 bg-[#0a0705]">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }} className="text-center mb-14">
           <p className="text-[#ff8c00] text-sm font-semibold uppercase tracking-widest mb-3">Got Questions?</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Frequently Asked <span className="gradient-text">Questions</span>
           </h2>
           <p className="text-[#8c7050]">Everything you need to know before enrolling.</p>

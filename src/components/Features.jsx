@@ -42,7 +42,7 @@ export default function Features() {
           backgroundSize: '40px 40px',
         }}
       />
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -51,12 +51,12 @@ export default function Features() {
           className="text-center mb-14"
         >
           <p className="text-[#ff8c00] text-sm font-semibold uppercase tracking-widest mb-3">Why Trade with Bhardwaj</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white">
             Everything You Need to <span className="gradient-text">Succeed</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
           {features.map((f, i) => (
             <motion.div
               key={i}

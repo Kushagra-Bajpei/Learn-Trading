@@ -23,13 +23,13 @@ export default function Pricing() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] opacity-10 rounded-full blur-[100px]"
         style={{ background: 'radial-gradient(circle, #ff8c00, transparent 70%)' }} />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }} className="text-center mb-14">
           <p className="text-[#ff8c00] text-sm font-semibold uppercase tracking-widest mb-3 flex items-center justify-center gap-2">
             <Flame size={16} className="text-orange-500 animate-pulse" /> Summer Camp Offer <Flame size={16} className="text-orange-500 animate-pulse" />
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Invest in Your <span className="gradient-text">Financial Future</span>
           </h2>
           <p className="text-[#8c7050] max-w-lg mx-auto">
@@ -37,13 +37,13 @@ export default function Pricing() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-8 items-stretch">
+        <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
           {/* Main Course Pricing Card */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-7 relative rounded-3xl border border-[#ff8c00]/30 bg-gradient-to-b from-[#1a1206] to-[#0d0a06] p-8 md:p-10 glow flex flex-col justify-between"
+            className="lg:col-span-7 relative rounded-3xl border border-[#ff8c00]/30 bg-gradient-to-b from-[#1a1206] to-[#0d0a06] p-6 sm:p-8 md:p-10 glow flex flex-col justify-between"
           >
             <div className="absolute -top-4 right-8 bg-[#ff8c00] text-[#0d0a06] text-xs font-black px-4 py-1.5 rounded-full tracking-wider uppercase flex items-center gap-1.5 shadow-lg">
               <Flame size={12} fill="#0d0a06" /> Summer Special
@@ -63,7 +63,7 @@ export default function Pricing() {
               <div className="mb-8 bg-[#0d0a06]/50 rounded-2xl p-5 border border-[#2e1f08] inline-block">
                 <p className="text-xs text-[#8c7050] uppercase tracking-wider">Special Price</p>
                 <div className="flex items-baseline gap-3 mt-1">
-                  <span className="font-display font-black text-5xl text-[#ff8c00] tracking-tight">₹19,999</span>
+                  <span className="font-display font-black text-4xl sm:text-5xl text-[#ff8c00] tracking-tight">₹19,999</span>
                   <span className="text-[#8c7050] text-lg line-through">₹30,000+</span>
                 </div>
                 <p className="text-[#ff8c00] text-xs font-semibold mt-1">🔥 Save over ₹10,000 today (One-time payment)</p>
@@ -79,7 +79,7 @@ export default function Pricing() {
               </div>
             </div>
 
-            <button className="btn-primary w-full py-4 text-base font-bold uppercase tracking-wider relative z-10">
+            <button className="btn-primary w-full py-3.5 sm:py-4 text-sm sm:text-base font-bold uppercase tracking-wider relative z-10">
               Enroll in Summer Camp Now →
             </button>
           </motion.div>
@@ -89,7 +89,7 @@ export default function Pricing() {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-5 relative rounded-3xl border border-purple-500/30 bg-gradient-to-b from-[#13111c] to-[#0d0a06] p-8 md:p-10 flex flex-col justify-between"
+            className="lg:col-span-5 relative rounded-3xl border border-purple-500/30 bg-gradient-to-b from-[#13111c] to-[#0d0a06] p-6 sm:p-8 md:p-10 flex flex-col justify-between"
           >
             <div className="absolute -top-4 right-8 bg-purple-500 text-white text-xs font-black px-4 py-1.5 rounded-full tracking-wider uppercase flex items-center gap-1.5 shadow-lg">
               <Gift size={12} fill="white" /> Share & Earn

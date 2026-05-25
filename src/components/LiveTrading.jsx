@@ -30,21 +30,21 @@ export default function LiveTrading() {
     <section id="live-trading" className="py-24 relative overflow-hidden bg-[#110d04]">
       <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-80 h-80 rounded-full opacity-10"
         style={{ background: 'radial-gradient(circle, #ff8c00, transparent)' }} />
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <motion.div ref={ref} initial={{ opacity: 0, x: -50 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8 }}>
             <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 rounded-full px-4 py-1.5 mb-6">
               <span className="live-dot" />
               <span className="text-xs font-bold text-red-400 uppercase tracking-wider">Live Trading Sessions</span>
             </div>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               Trade Live with a <br /><span className="gradient-text">15-Year Expert</span>
             </h2>
-            <p className="text-[#d4b896] text-lg leading-relaxed mb-8">
+            <p className="text-[#d4b896] text-sm sm:text-lg leading-relaxed mb-6 sm:mb-8">
               Watch a professional trader execute real trades in real time. Learn to read markets,
               manage risk, and make confident decisions — with live commentary and Q&A.
             </p>
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
               {[
                 { icon: <Radio size={18} />, title: '4 Live Sessions/Week', sub: 'Mon, Wed, Fri, Sat' },
                 { icon: <Users size={18} />, title: 'Limited Seats', sub: 'Max 30 per session' },
@@ -60,7 +60,7 @@ export default function LiveTrading() {
                 </div>
               ))}
             </div>
-            <button className="btn-primary px-8 py-3.5 flex items-center gap-2 relative z-10">
+            <button className="btn-primary px-6 sm:px-8 py-3.5 flex items-center gap-2 relative z-10 w-full sm:w-auto justify-center">
               Join Next Live Session <ArrowRight size={18} />
             </button>
           </motion.div>
