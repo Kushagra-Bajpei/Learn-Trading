@@ -35,9 +35,8 @@ export default function Navbar({ onLinkClick }) {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'glass border-b border-[#2e1f08]' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${scrolled ? 'bg-[#0d0a06]/95 backdrop-blur-xl border-b border-[#2e1f08] shadow-2xl' : 'bg-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-18 py-4">
         {/* Logo */}

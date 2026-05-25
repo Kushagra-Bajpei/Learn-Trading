@@ -20,9 +20,9 @@ export default function LiveTrading() {
 
   useEffect(() => {
     if (!panelRef.current) return;
-    gsap.fromTo(panelRef.current, { x: 80, opacity: 0 }, {
+    gsap.fromTo(panelRef.current, { x: 20, opacity: 0 }, {
       x: 0, opacity: 1, duration: 1, ease: 'power3.out',
-      scrollTrigger: { trigger: panelRef.current, start: 'top 80%' },
+      scrollTrigger: { trigger: panelRef.current, start: 'top 85%' },
     });
   }, []);
 
@@ -60,44 +60,46 @@ export default function LiveTrading() {
                 </div>
               ))}
             </div>
-            <button className="btn-primary px-6 sm:px-8 py-3.5 flex items-center gap-2 relative z-10 w-full sm:w-auto justify-center">
-              Join Next Live Session <ArrowRight size={18} />
+            <button className="btn-primary px-6 sm:px-8 py-3.5 flex items-center gap-2 relative z-10 w-full sm:w-auto justify-center group overflow-hidden">
+              <span className="relative z-10 flex items-center gap-2">
+                Join Next Live Session <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </span>
             </button>
           </motion.div>
 
           <div ref={panelRef} className="opacity-0 space-y-4">
-            <div className="glass rounded-2xl p-6 glow">
+            <div className="glass rounded-2xl p-4 sm:p-6 glow overflow-hidden">
               <div className="flex items-center justify-between mb-5">
-                <h3 className="font-display font-bold text-white text-lg">Upcoming Sessions</h3>
-                <span className="flex items-center gap-1.5 text-xs text-red-400 font-semibold">
+                <h3 className="font-display font-bold text-white text-base sm:text-lg">Upcoming Sessions</h3>
+                <span className="flex items-center gap-1.5 text-[10px] sm:text-xs text-red-400 font-semibold shrink-0">
                   <span className="live-dot" /> LIVE This Week
                 </span>
               </div>
               <div className="space-y-3">
                 {sessions.map((s, i) => (
-                  <motion.div key={i} initial={{ opacity: 0, x: 20 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.3 + i * 0.1 }}
-                    className="flex items-center gap-4 bg-[#0d0a06] border border-[#2e1f08] rounded-xl p-4 hover:border-[#ff8c00]/30 transition-colors cursor-pointer group">
-                    <div className="text-center bg-[#ff8c00]/10 rounded-lg px-3 py-2 shrink-0">
-                      <p className="text-[#ff8c00] font-bold text-xs">{s.day.slice(0, 3).toUpperCase()}</p>
-                      <Calendar size={14} className="text-[#ff8c00] mx-auto mt-1" />
+                  <motion.div key={i} initial={{ opacity: 0, x: 15 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.3 + i * 0.1 }}
+                    className="flex items-center gap-3 sm:gap-4 bg-[#0d0a06] border border-[#2e1f08] rounded-xl p-3 sm:p-4 hover:border-[#ff8c00]/30 transition-colors cursor-pointer group">
+                    <div className="text-center bg-[#ff8c00]/10 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 shrink-0">
+                      <p className="text-[#ff8c00] font-bold text-[10px] sm:text-xs">{s.day.slice(0, 3).toUpperCase()}</p>
+                      <Calendar size={13} className="text-[#ff8c00] mx-auto mt-0.5 sm:mt-1" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-white text-sm font-semibold truncate">{s.topic}</p>
-                      <p className="text-[#8c7050] text-xs mt-0.5">{s.time}</p>
+                      <p className="text-white text-xs sm:text-sm font-semibold truncate">{s.topic}</p>
+                      <p className="text-[#8c7050] text-[10px] sm:text-xs mt-0.5">{s.time}</p>
                     </div>
                     <div className="text-right shrink-0">
-                      <p className="text-[#ff4d4d] text-xs font-bold">{s.seats} seats left</p>
-                      <button className="text-[#ff8c00] text-xs mt-1 group-hover:underline">Register →</button>
+                      <p className="text-[#ff4d4d] text-[10px] sm:text-xs font-bold leading-tight">{s.seats} seats</p>
+                      <button className="text-[#ff8c00] text-[10px] sm:text-xs mt-0.5 group-hover:underline">Register →</button>
                     </div>
                   </motion.div>
                 ))}
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-3">
-              {[{ val: '200+', label: 'Sessions Done' }, { val: '₹2.4Cr', label: 'Student Profits' }, { val: '94%', label: 'Satisfaction' }].map((s, i) => (
-                <div key={i} className="gradient-card border border-[#2e1f08] rounded-xl p-4 text-center">
-                  <p className="text-[#ff8c00] font-display font-bold text-2xl">{s.val}</p>
-                  <p className="text-[#8c7050] text-xs mt-1">{s.label}</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {[{ val: '200+', label: 'Sessions' }, { val: '₹2.4Cr', label: 'Profits' }, { val: '94%', label: 'Success' }].map((s, i) => (
+                <div key={i} className={`gradient-card border border-[#2e1f08] rounded-xl p-3 sm:p-4 text-center ${i === 2 ? 'col-span-2 sm:col-span-1' : ''}`}>
+                  <p className="text-[#ff8c00] font-display font-bold text-xl sm:text-2xl">{s.val}</p>
+                  <p className="text-[#8c7050] text-[10px] sm:text-xs mt-1">{s.label}</p>
                 </div>
               ))}
             </div>
