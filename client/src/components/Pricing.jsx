@@ -1,8 +1,11 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Check, Star, Users, Flame, Award, Gift } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
+import { initializeCheckout } from '../lib/checkout';
 
 export default function Pricing() {
+  const { user } = useAuth();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
 
@@ -79,7 +82,7 @@ export default function Pricing() {
               </div>
             </div>
 
-            <button className="btn-primary w-full py-3.5 sm:py-4 text-sm sm:text-base font-bold uppercase tracking-wider relative z-10">
+            <button onClick={() => initializeCheckout(user)} className="btn-primary w-full py-3.5 sm:py-4 text-sm sm:text-base font-bold uppercase tracking-wider relative z-10">
               Enroll in Summer Camp Now →
             </button>
           </motion.div>

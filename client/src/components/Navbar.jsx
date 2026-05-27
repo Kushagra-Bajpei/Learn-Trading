@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TrendingUp, Menu, X } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
+import { initializeCheckout } from '../lib/checkout';
 
 const links = ['Home', 'Courses', 'Live Trading', 'Instructor', 'Pricing', 'Referral'];
 
 export default function Navbar({ onLinkClick }) {
+  const { user, signOut } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -67,8 +70,12 @@ export default function Navbar({ onLinkClick }) {
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <button className="btn-outline text-sm px-5 py-2">Login</button>
-          <button className="btn-primary text-sm px-5 py-2 relative z-10">Enroll Now</button>
+          {user ? (
+            <button onClick={signOut} className="btn-outline text-sm px-5 py-2">Logout</button>
+          ) : (
+            <button onClick={(e) => { e.preventDefault(); onLinkClick('login'); }} className="btn-outline text-sm px-5 py-2">Login</button>
+          )}
+          <button onClick={() => initializeCheckout(user)} className="btn-primary text-sm px-5 py-2 relative z-10">Enroll Now</button>
         </div>
 
         {/* Mobile toggle — shrink-0 ensures it never gets squeezed by logo */}
@@ -102,8 +109,12 @@ export default function Navbar({ onLinkClick }) {
                 </a>
               ))}
               <div className="flex gap-3 pt-2">
-                <button className="btn-outline text-sm px-4 py-2 flex-1">Login</button>
-                <button className="btn-primary text-sm px-4 py-2 flex-1 relative z-10">Enroll Now</button>
+                {user ? (
+                  <button onClick={() => { signOut(); setOpen(false); }} className="btn-outline text-sm px-4 py-2 flex-1">Logout</button>
+                ) : (
+                  <button onClick={(e) => { e.preventDefault(); onLinkClick('login'); setOpen(false); }} className="btn-outline text-sm px-4 py-2 flex-1">Login</button>
+                )}
+                <button onClick={() => initializeCheckout(user)} className="btn-primary text-sm px-4 py-2 flex-1 relative z-10">Enroll Now</button>
               </div>
             </div>
           </motion.div>

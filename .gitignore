@@ -1,0 +1,135 @@
+# ============================================================
+#  .gitignore — Trading Platform (React/Vite + Node.js)
+# ============================================================
+
+# ──────────────────────────────────────────
+# Dependencies
+# ──────────────────────────────────────────
+node_modules/
+client/node_modules/
+server/node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# ──────────────────────────────────────────
+# Environment Variables & Secrets
+# ──────────────────────────────────────────
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+client/.env
+client/.env.*
+server/.env
+server/.env.*
+
+# ──────────────────────────────────────────
+# Build / Output
+# ──────────────────────────────────────────
+dist/
+build/
+out/
+client/dist/
+client/build/
+server/dist/
+server/build/
+*.tsbuildinfo
+
+# ──────────────────────────────────────────
+# Logs
+# ──────────────────────────────────────────
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ──────────────────────────────────────────
+# Runtime / Cache
+# ──────────────────────────────────────────
+.cache/
+.parcel-cache/
+.vite/
+.eslintcache
+.stylelintcache
+.npm
+.nyc_output
+coverage/
+*.lcov
+
+# ──────────────────────────────────────────
+# OS Generated
+# ──────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ──────────────────────────────────────────
+# IDEs & Editors
+# ──────────────────────────────────────────
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.iml
+.project
+.classpath
+.settings/
+*.code-workspace
+
+# ──────────────────────────────────────────
+# TypeScript
+# ──────────────────────────────────────────
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# ──────────────────────────────────────────
+# Testing
+# ──────────────────────────────────────────
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+
+# ──────────────────────────────────────────
+# Supabase
+# ──────────────────────────────────────────
+.supabase/
+
+# ──────────────────────────────────────────
+# Razorpay / Payment keys (extra safety)
+# ──────────────────────────────────────────
+secrets.json
+credentials.json
+
+# ──────────────────────────────────────────
+# Miscellaneous
+# ──────────────────────────────────────────
+*.pem
+*.key
+*.cert
+*.p12
+*.pfx
+tmp/
+temp/
+.temp/
+.tmp/
+*.local

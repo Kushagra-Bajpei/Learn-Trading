@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, MessageCircle, Clock, CheckCircle } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 /* ── Leaflet map (loaded lazily so SSR never breaks) ── */
 function LocationMap() {
@@ -9,8 +10,11 @@ function LocationMap() {
 
   useEffect(() => {
     if (instanceRef.current) return; // already mounted
+    instanceRef.current = 'loading'; // Mark as loading to prevent Strict Mode dupes
 
     import('leaflet').then((L) => {
+      if (!mapRef.current || mapRef.current._leaflet_id) return; // safeguard if unmounted or already init
+
       // Fix default marker icon paths broken by Vite bundling
       delete L.Icon.Default.prototype._getIconUrl;
       L.Icon.Default.mergeOptions({
@@ -63,10 +67,10 @@ function LocationMap() {
     });
 
     return () => {
-      if (instanceRef.current) {
+      if (instanceRef.current && typeof instanceRef.current !== 'string') {
         instanceRef.current.remove();
-        instanceRef.current = null;
       }
+      instanceRef.current = null;
     };
   }, []);
 
@@ -135,7 +139,20 @@ export default function CTABanner() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', topic: '', message: '' });
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-  const handleSubmit = (e) => { e.preventDefault(); setSubmitted(true); };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { error } = await supabase.from('contacts').insert([form]);
+      if (error) {
+        console.error("Supabase Error:", error);
+        alert("Failed to send message: " + error.message);
+        return;
+      }
+      setSubmitted(true);
+    } catch (err) {
+      alert("Error sending message.");
+    }
+  };
 
   return (
     <section id="contact" className="py-24 bg-[#0d0a06] relative overflow-hidden">
