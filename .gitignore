@@ -1,10 +1,5 @@
-# ============================================================
-#  .gitignore — Trading Platform (React/Vite + Node.js)
-# ============================================================
-
-# ──────────────────────────────────────────
 # Dependencies
-# ──────────────────────────────────────────
+
 node_modules/
 client/node_modules/
 server/node_modules/
@@ -12,9 +7,9 @@ server/node_modules/
 .pnp.js
 .yarn/install-state.gz
 
-# ──────────────────────────────────────────
+
 # Environment Variables & Secrets
-# ──────────────────────────────────────────
+
 .env
 .env.local
 .env.development.local
@@ -26,9 +21,8 @@ client/.env.*
 server/.env
 server/.env.*
 
-# ──────────────────────────────────────────
 # Build / Output
-# ──────────────────────────────────────────
+
 dist/
 build/
 out/
@@ -38,9 +32,9 @@ server/dist/
 server/build/
 *.tsbuildinfo
 
-# ──────────────────────────────────────────
+
 # Logs
-# ──────────────────────────────────────────
+
 logs/
 *.log
 npm-debug.log*
@@ -49,9 +43,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# ──────────────────────────────────────────
+
 # Runtime / Cache
-# ──────────────────────────────────────────
+
 .cache/
 .parcel-cache/
 .vite/
@@ -62,9 +56,9 @@ lerna-debug.log*
 coverage/
 *.lcov
 
-# ──────────────────────────────────────────
+
 # OS Generated
-# ──────────────────────────────────────────
+
 .DS_Store
 .DS_Store?
 ._*
@@ -75,9 +69,9 @@ ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
-# ──────────────────────────────────────────
+
 # IDEs & Editors
-# ──────────────────────────────────────────
+
 .vscode/
 !.vscode/extensions.json
 .idea/
@@ -92,15 +86,15 @@ $RECYCLE.BIN/
 .settings/
 *.code-workspace
 
-# ──────────────────────────────────────────
+
 # TypeScript
-# ──────────────────────────────────────────
+
 *.tsbuildinfo
 tsconfig.tsbuildinfo
 
-# ──────────────────────────────────────────
+
 # Testing
-# ──────────────────────────────────────────
+
 coverage/
 .nyc_output/
 test-results/
@@ -109,20 +103,20 @@ cypress/videos/
 cypress/screenshots/
 cypress/downloads/
 
-# ──────────────────────────────────────────
+
 # Supabase
-# ──────────────────────────────────────────
+
 .supabase/
 
-# ──────────────────────────────────────────
+
 # Razorpay / Payment keys (extra safety)
-# ──────────────────────────────────────────
+
 secrets.json
 credentials.json
 
-# ──────────────────────────────────────────
+
 # Miscellaneous
-# ──────────────────────────────────────────
+
 *.pem
 *.key
 *.cert
