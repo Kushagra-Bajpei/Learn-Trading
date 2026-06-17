@@ -177,5 +177,5 @@ export default function Testimonials() {
         ))}
       </motion.div>
     </section>
-  );
+  ); 
 }
